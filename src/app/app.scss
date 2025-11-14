@@ -85,6 +85,11 @@
   
   @media (max-width: 768px) {
     width: 90%;
+    gap: 2rem;
+  }
+  
+  @media (max-width: 576px) {
+    gap: 1.5rem;
   }
 }
 
@@ -96,6 +101,10 @@
   box-shadow: 0 20px 60px rgba(99, 102, 241, 0.3);
   border: 1px solid rgba(99, 102, 241, 0.3);
   backdrop-filter: blur(10px);
+  
+  @media (max-width: 576px) {
+    border-radius: 8px;
+  }
 }
 
 .terminal-header {
@@ -130,6 +139,18 @@
   color: #00ff00;
   min-height: 200px;
   font-size: 0.95rem;
+  
+  @media (max-width: 768px) {
+    padding: 1.25rem;
+    font-size: 0.9rem;
+    min-height: 150px;
+  }
+  
+  @media (max-width: 576px) {
+    padding: 1rem;
+    font-size: 0.85rem;
+    min-height: 120px;
+  }
 }
 
 .terminal-line {
@@ -183,6 +204,11 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    
+    @media (max-width: 576px) {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
   }
 }
 

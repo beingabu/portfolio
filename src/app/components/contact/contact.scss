@@ -17,6 +17,10 @@
 .section-title {
   text-align: center;
   margin-bottom: 0.5rem;
+  
+  @media (max-width: 576px) {
+    font-size: 2rem;
+  }
 }
 
 .section-subtitle {
@@ -24,6 +28,16 @@
   font-size: 1.2rem;
   color: var(--text-secondary);
   margin-bottom: 3rem;
+  
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+  
+  @media (max-width: 576px) {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
 }
 
 .contact-content {
@@ -37,12 +51,20 @@
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
+  
+  @media (max-width: 576px) {
+    gap: 2rem;
+  }
 }
 
 .contact-info {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  
+  @media (max-width: 576px) {
+    gap: 1rem;
+  }
 }
 
 .info-card {
@@ -54,6 +76,11 @@
   gap: 1.25rem;
   transition: all 0.3s ease;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  
+  @media (max-width: 576px) {
+    padding: 1.25rem;
+    gap: 1rem;
+  }
   
   &:hover {
     transform: translateX(8px);
@@ -72,6 +99,12 @@
     background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
     border-radius: 12px;
     transition: transform 0.3s ease;
+    
+    @media (max-width: 576px) {
+      font-size: 2rem;
+      width: 50px;
+      height: 50px;
+    }
   }
   
   &:hover .info-icon {
@@ -86,6 +119,11 @@
       margin: 0;
       font-size: 1.05rem;
       font-weight: 500;
+      word-break: break-word;
+      
+      @media (max-width: 576px) {
+        font-size: 0.95rem;
+      }
     }
   }
 }
@@ -99,10 +137,18 @@
   @media (max-width: 768px) {
     padding: 2rem;
   }
+  
+  @media (max-width: 576px) {
+    padding: 1.5rem;
+  }
 }
 
 .form-group {
   margin-bottom: 1.5rem;
+  
+  @media (max-width: 576px) {
+    margin-bottom: 1.25rem;
+  }
 }
 
 .form-input {
@@ -116,6 +162,11 @@
   font-family: inherit;
   transition: all 0.3s ease;
   outline: none;
+  
+  @media (max-width: 576px) {
+    padding: 0.875rem 1rem;
+    font-size: 0.95rem;
+  }
   
   &:focus {
     border-color: var(--primary-color);
@@ -157,6 +208,10 @@
 textarea.form-input {
   resize: vertical;
   min-height: 120px;
+  
+  @media (max-width: 576px) {
+    min-height: 100px;
+  }
 }
 
 .submit-btn {
@@ -165,6 +220,11 @@ textarea.form-input {
   padding: 1rem 2rem;
   font-size: 1.05rem;
   font-weight: 600;
+  
+  @media (max-width: 576px) {
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+  }
   
   &:disabled {
     opacity: 0.6;
