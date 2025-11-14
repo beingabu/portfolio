@@ -5,13 +5,13 @@ import { SYSTEM_PROMPT } from '../config/prompt';
   providedIn: 'root'
 })
 export class AiChatService {
-  private apiUrl = 'https://epic-backend-62lr1dfmi-beingmartinbmcs-projects.vercel.app/api/generic';
+  private apiUrl = 'https://epic-backend-qw72xptp1-beingmartinbmcs-projects.vercel.app/api/generic';
 
   async sendMessage(message: string): Promise<string> {
     try {
       // Combine system prompt with user message
       const fullPrompt = `${SYSTEM_PROMPT}\n\nUser Question: ${message}\n\nProvide a helpful, conversational response:`;
-      
+
       const response = await fetch(this.apiUrl, {
         method: 'POST',
         headers: {
