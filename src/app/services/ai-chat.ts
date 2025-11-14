@@ -27,6 +27,13 @@ export class AiChatService {
       }
 
       const data = await response.json();
+      
+      // Handle the new API response structure
+      if (data.success && data.data?.choices?.[0]?.message?.content) {
+        return data.data.choices[0].message.content;
+      }
+      
+      // Fallback to old response formats
       return data.response || data.text || data.message || 'Sorry, I couldn\'t process that. Please try again!';
     } catch (error) {
       console.error('AI Chat error:', error);
