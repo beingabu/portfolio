@@ -4,6 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header';
 import { AboutComponent } from './components/about/about';
 import { SkillsComponent } from './components/skills/skills';
+import { AIChatSectionComponent } from './components/ai-chat-section/ai-chat-section';
 import { ContactComponent } from './components/contact/contact';
 
 @Component({
@@ -14,6 +15,7 @@ import { ContactComponent } from './components/contact/contact';
     HeaderComponent,
     AboutComponent,
     SkillsComponent,
+    AIChatSectionComponent,
     ContactComponent
   ],
   templateUrl: './app.html',

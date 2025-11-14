@@ -4,7 +4,7 @@
       <div class="about-text fade-in-up">
         <h2 class="section-title">About Me</h2>
         <p class="intro">
-          Hi, I'm a <span class="highlight">Frontend Developer</span> passionate about creating 
+          Hi, I'm <span class="highlight">Abhishek Sharma</span> — a Frontend Developer passionate about creating 
           beautiful, responsive, and user-friendly web applications.
         </p>
         <p class="description">
@@ -38,9 +38,6 @@
             </svg>
           </a>
         </div>
-        <button class="btn btn-primary ai-chat-btn" (click)="toggleChat()">
-          <span class="ai-icon">🤖</span> Ask Me Anything
-        </button>
       </div>
       
       <div class="about-image fade-in-up">
@@ -63,55 +60,6 @@
             <div class="float-item" style="--delay: 2s">⚡</div>
           </div>
         </div>
-      </div>
-    </div>
-
-    <!-- AI Chat Window -->
-    <div class="ai-chat-window" [class.open]="isChatOpen">
-      <div class="chat-header">
-        <div class="chat-title">
-          <span class="ai-avatar">🤖</span>
-          <div>
-            <h4>AI Assistant</h4>
-            <p>Ask me anything</p>
-          </div>
-        </div>
-        <button class="close-btn" (click)="toggleChat()">✕</button>
-      </div>
-      
-      <div class="chat-messages">
-        <div *ngFor="let message of messages" 
-             class="message" 
-             [class.user-message]="message.isUser"
-             [class.ai-message]="!message.isUser">
-          <div class="message-content">
-            <p>{{ message.text }}</p>
-          </div>
-        </div>
-        <div *ngIf="isTyping" class="message ai-message typing">
-          <div class="message-content">
-            <div class="typing-indicator">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="chat-input">
-        <input 
-          type="text" 
-          [(ngModel)]="userMessage"
-          (keyup.enter)="sendMessage()"
-          placeholder="Ask me anything... literally anything!"
-          class="message-input">
-        <button (click)="sendMessage()" class="send-btn">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="22" y1="2" x2="11" y2="13"></line>
-            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-          </svg>
-        </button>
       </div>
     </div>
   </div>

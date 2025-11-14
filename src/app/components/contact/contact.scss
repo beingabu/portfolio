@@ -125,6 +125,17 @@
         font-size: 0.95rem;
       }
     }
+    
+    .info-subtitle {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      font-weight: 400;
+      margin-top: 0.25rem;
+      
+      @media (max-width: 576px) {
+        font-size: 0.85rem;
+      }
+    }
   }
 }
 

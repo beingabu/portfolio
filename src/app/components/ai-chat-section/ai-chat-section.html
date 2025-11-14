@@ -1,0 +1,58 @@
+<section id="ai-chat" class="section ai-chat-section">
+  <div class="container">
+    <h2 class="section-title fade-in-up">🤖 Ask Me Anything</h2>
+    <p class="section-subtitle fade-in-up">Chat with my AI assistant to learn more about me</p>
+    
+    <div class="chat-container fade-in-up">
+      <div class="chat-messages-wrapper">
+        <div class="chat-messages">
+          @for (message of messages(); track $index) {
+            <div class="message" [class.user-message]="message.role === 'user'" [class.ai-message]="message.role === 'ai'">
+              <div class="message-avatar">
+                @if (message.role === 'user') {
+                  <span>👤</span>
+                } @else {
+                  <span>🤖</span>
+                }
+              </div>
+              <div class="message-content">
+                <p>{{ message.content }}</p>
+              </div>
+            </div>
+          }
+          
+          @if (isTyping()) {
+            <div class="message ai-message">
+              <div class="message-avatar">
+                <span>🤖</span>
+              </div>
+              <div class="message-content">
+                <div class="typing-indicator">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+      
+      <div class="chat-input-wrapper">
+        <input 
+          type="text" 
+          [(ngModel)]="userInput"
+          (keypress)="handleKeyPress($event)"
+          placeholder="Ask me anything about Abhishek..."
+          class="chat-input"
+          [disabled]="isTyping()">
+        <button 
+          (click)="sendMessage()"
+          [disabled]="!userInput.trim() || isTyping()"
+          class="send-btn">
+          <span>➤</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
