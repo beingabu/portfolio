@@ -5,7 +5,7 @@ import { SYSTEM_PROMPT } from '../config/prompt';
   providedIn: 'root'
 })
 export class AiChatService {
-  private apiUrl = 'https://epic-backend-qw72xptp1-beingmartinbmcs-projects.vercel.app/api/generic';
+  private apiUrl = 'https://epic-backend-hkeeg5uc5-beingmartinbmcs-projects.vercel.app/api/generic';
 
   async sendMessage(message: string): Promise<string> {
     try {
