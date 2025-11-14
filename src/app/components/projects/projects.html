@@ -1,0 +1,29 @@
+<section id="projects" class="section projects-section">
+  <div class="container">
+    <h2 class="section-title fade-in-up">Projects</h2>
+    <p class="section-subtitle fade-in-up">Showcasing my technical skills and creativity</p>
+    
+    <div class="projects-grid">
+      @for (project of projects; track project.title) {
+        <div class="project-card fade-in-up" (click)="openProject(project.liveUrl)">
+          <div class="project-icon">{{ project.icon }}</div>
+          
+          <div class="project-content">
+            <h3 class="project-title">{{ project.title }}</h3>
+            <p class="project-description">{{ project.description }}</p>
+            
+            <div class="tech-stack">
+              <span class="tech-label">Tech Stack:</span>
+              <span class="tech-items">{{ project.techStack }}</span>
+            </div>
+            
+            <div class="project-link">
+              <span class="link-text">View Live Project</span>
+              <span class="arrow">→</span>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
