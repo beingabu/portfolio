@@ -1,25 +1,25 @@
 import { Injectable } from '@angular/core';
+import { SYSTEM_PROMPT } from '../config/prompt';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AiChatService {
-  private apiUrl = '';
-  private apiKey = '';
+  private apiUrl = 'https://epic-backend-62lr1dfmi-beingmartinbmcs-projects.vercel.app/api/generic';
 
   async sendMessage(message: string): Promise<string> {
-    if (!this.apiUrl || !this.apiKey) {
-      return this.getPlaceholderResponse(message);
-    }
-
     try {
+      // Combine system prompt with user message
+      const fullPrompt = `${SYSTEM_PROMPT}\n\nUser Question: ${message}\n\nProvide a helpful, conversational response:`;
+      
       const response = await fetch(this.apiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${this.apiKey}`
+          'accept': 'application/json',
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36'
         },
-        body: JSON.stringify({ message })
+        body: JSON.stringify({ prompt: fullPrompt })
       });
 
       if (!response.ok) {
@@ -27,39 +27,10 @@ export class AiChatService {
       }
 
       const data = await response.json();
-      return data.response || 'No response received';
+      return data.response || data.text || data.message || 'Sorry, I couldn\'t process that. Please try again!';
     } catch (error) {
       console.error('AI Chat error:', error);
-      throw error;
+      return 'Oops! Something went wrong. I\'m having trouble connecting right now. Please try again in a moment! 🤖';
     }
-  }
-
-  private getPlaceholderResponse(message: string): Promise<string> {
-    const responses = {
-      experience: 'I have 5+ years of experience in frontend development, specializing in Angular, React, and modern web technologies.',
-      skills: 'My core skills include Angular, React, TypeScript, JavaScript, HTML5, CSS3/SCSS, and responsive design. I also work with Node.js and various frontend tools.',
-      projects: 'I have completed 50+ projects ranging from e-commerce platforms to SaaS applications, always focusing on performance and user experience.',
-      default: 'Thanks for your question! I\'m a frontend developer passionate about creating amazing web experiences. Feel free to ask about my experience, skills, or projects!'
-    };
-
-    const lowerMessage = message.toLowerCase();
-    let response = responses['default'];
-
-    if (lowerMessage.includes('experience') || lowerMessage.includes('work')) {
-      response = responses['experience'];
-    } else if (lowerMessage.includes('skill') || lowerMessage.includes('technology')) {
-      response = responses['skills'];
-    } else if (lowerMessage.includes('project') || lowerMessage.includes('portfolio')) {
-      response = responses['projects'];
-    }
-
-    return new Promise(resolve => {
-      setTimeout(() => resolve(response), 1000);
-    });
-  }
-
-  configureApi(apiUrl: string, apiKey: string): void {
-    this.apiUrl = apiUrl;
-    this.apiKey = apiKey;
   }
 }
