@@ -1,0 +1,19 @@
+<section id="skills" class="section skills-section">
+  <div class="container">
+    <h2 class="section-title fade-in-up">Skills & Technologies</h2>
+    <p class="section-subtitle fade-in-up">Technologies I work with to bring ideas to life</p>
+    
+    <div class="skills-grid">
+      <div *ngFor="let skill of skills" class="skill-card fade-in-up">
+        <div class="skill-icon">{{ skill.icon }}</div>
+        <h3 class="skill-name">{{ skill.name }}</h3>
+        <span class="skill-category">{{ skill.category }}</span>
+        <div class="skill-bar-container">
+          <div class="skill-bar" [style.width.%]="skill.level">
+            <span class="skill-level">{{ skill.level }}%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
