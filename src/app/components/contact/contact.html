@@ -2,23 +2,23 @@
   <div class="container">
     <h2 class="section-title fade-in-up">Get In Touch</h2>
     <p class="section-subtitle fade-in-up">Let's create something amazing together</p>
-    
+
     <div class="contact-content">
       <div class="contact-info fade-in-up">
-        <div class="info-card" title="Email: abhishek27062000@gmail.com">
+        <div class="info-card" title="Email: abhisheksharma27062000@gmail.com">
           <div class="info-icon">📧</div>
           <div class="info-content">
-            <p>abhishek27062000@gmail.com</p>
+            <p>abhisheksharma27062000@gmail.com</p>
           </div>
         </div>
-        
+
         <div class="info-card" title="Location: Uttar Pradesh">
           <div class="info-icon">📍</div>
           <div class="info-content">
             <p>Uttar Pradesh</p>
           </div>
         </div>
-        
+
         <div class="info-card" title="Available for: Full-time opportunities">
           <div class="info-icon">💼</div>
           <div class="info-content">
@@ -26,7 +26,7 @@
             <p class="info-subtitle">Full-time opportunities</p>
           </div>
         </div>
-        
+
         <div class="info-card" title="Response time: Within 24 hours">
           <div class="info-icon">⏱️</div>
           <div class="info-content">
@@ -35,21 +35,21 @@
           </div>
         </div>
       </div>
-      
+
       <form class="contact-form fade-in-up" (ngSubmit)="onSubmit()">
         <div class="form-group">
-          <input 
-            type="text" 
+          <input
+            type="text"
             [(ngModel)]="formData.name"
             name="name"
             placeholder="Your Name"
             required
             class="form-input">
         </div>
-        
+
         <div class="form-group">
-          <input 
-            type="email" 
+          <input
+            type="email"
             [(ngModel)]="formData.email"
             #emailInput="ngModel"
             name="email"
@@ -63,9 +63,9 @@
             <span *ngIf="emailInput.errors?.['email']">Please enter a valid email address</span>
           </div>
         </div>
-        
+
         <div class="form-group">
-          <textarea 
+          <textarea
             [(ngModel)]="formData.message"
             name="message"
             placeholder="Your Message"
@@ -73,17 +73,21 @@
             required
             class="form-input"></textarea>
         </div>
-        
-        <button 
-          type="submit" 
+
+        <button
+          type="submit"
           class="btn btn-primary submit-btn"
           [disabled]="isSubmitting">
           <span *ngIf="!isSubmitting">Send Message</span>
           <span *ngIf="isSubmitting">Sending...</span>
         </button>
-        
+
         <div *ngIf="submitSuccess" class="success-message">
-          ✓ Message sent successfully!
+          ✓ Thanks for your submission! Your message has been sent successfully.
+        </div>
+
+        <div *ngIf="submitError" class="error-message-box">
+          ✗ {{ errorMessage }}
         </div>
       </form>
     </div>
